@@ -1,3 +1,10 @@
+# 🗣️ BinusianTalks
+BinusianTalks is an anonymous discussion platform built exclusively for BINUS University students.
+It allows users to share thoughts, experiences, and opinions freely while maintaining their privacy.
+
+# 🎯 Purpose
+To create a safe, inclusive, and expressive digital space where BINUS students can connect, discuss, and express opinions without fear of judgment.
+
 # Workflow 
 
 ### 1. Pull dari Branch main Terlebih Dahulu
