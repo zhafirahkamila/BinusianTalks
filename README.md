@@ -1,16 +1,34 @@
-# React + Vite
+# Workflow 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1. Pull dari Branch main Terlebih Dahulu
+Sebelum push, pastikan kamu sync dengan branch main terbaru:
+git pull origin main
 
-Currently, two official plugins are available:
+### 2. Buat Branch Baru
+git checkout -b nama-fitur
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 3. Lakukan Perubahan & Commit
+git add .
+git commit -m "Deskripsi singkat tentang perubahan yang kamu buat"
 
-## React Compiler
+### 4. Push ke GitHub
+git push origin nama-fitur
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 5. Buat Pull Request (PR)
+- Masuk ke GitHub repo
+- Akan muncul tombol “Compare & pull request”
+- Beri deskripsi singkat
+- Pilih reviewers
+- Tunggu approval dari anggota tim lain sebelum di-merge ke main
 
-## Expanding the ESLint configuration
+## Tips Commit Message
+Gunakan bahasa yang jelas dan ringkas
+Contoh:
+- Menambahkan fitur pencarian
+- Fix bug input kutipan
+- Update tampilan home page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Penting 
+- Setiap fitur harus dibuat di branch terpisah, bukan langsung di main.
+- Jangan push langsung ke branch main.
+- Selalu gunakan pull request.
