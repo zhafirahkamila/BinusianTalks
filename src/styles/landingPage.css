@@ -1,0 +1,324 @@
+:root{
+    --mainColor: #FFFAF1;
+    --darkBlue: #014769;
+    --midBlue: #137EB4;
+    --blue: #2296D9;
+    --blueTrans: #2296d948;
+    --softBlue: #6DC9F6;
+    --darkOrange: #EC8900;
+    --midOrange: #F39B2F;
+    --softOrange: #F8AC3C;
+    --icon: #777777;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("../assets/fonts/OpenSans.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OpenSans-Bold";
+    src: url("../assets/fonts/OpenSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OpenSans-Extra";
+    src: url("../assets/fonts/OpenSans-ExtraBold.ttf") format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Cormorant";
+    src: url("../assets/fonts/Cormorant.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar-nav {
+    font-family: "OpenSans";
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+.btn-signin {
+    background-color: var(--softOrange);
+    border: none;
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-family: "OpenSans";
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.btn-signin:hover {
+    background-color: var(--darkOrange);
+}
+
+.text {
+    font-family: "OpenSans";
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--darkBlue);
+}
+
+.form-wrapper {
+  width: 90%;
+  max-width: 500px; /* batas maksimal di layar besar */
+  background-color: var(--white);
+  padding: 20px;
+  /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); */
+}
+
+.form-input {
+    height: 50px;
+    border-color: var(--softOrange);
+    border-radius: 10px;
+    background-color: #7e7e7e13;
+}
+
+.form-input:focus {
+    box-shadow: 0 0 0 0.30rem rgba(255, 165, 0, 0.25);
+    border-color: var(--softOrange);
+    outline: none;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--icon);
+}
+
+.btn-create {
+    background-color: var(--softOrange);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    font-family: "OpenSans";
+    font-weight: bolder;
+    font-size: 16px;
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.btn-create:hover {
+    background-color: var(--darkOrange);
+}
+
+.text-login span {
+    font-size: 15px;
+}
+
+.text-login a {
+    color: var(--darkBlue);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.text-login a:hover {
+    color: var(--midBlue);
+}
+
+/* Styling untuk prev/next default icon agar ada background bulat */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.351);
+}
+
+/* Hover effect */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: var(--softOrange); 
+  transition: background-color 0.3s;
+}
+
+.btn {
+    border-radius: 50px;
+}
+
+.btn-custom {
+    background-color: white;
+    border-color: var(--softOrange);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-family: "OpenSans";
+    color: var(--black);
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.btn-custom:hover {
+    background-color: var(--softOrange);
+    border-color: var(--softOrange);
+    color: var(--white);
+}
+
+/* Container custom */
+.container-custom {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+/* Hilangkan border & shadow default */
+.accordion-item,
+.accordion-button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Style setiap accordion item */
+.accordion-item {
+  border: none; /* hilangkan border default */
+  margin-bottom: 15px;
+  border-radius: 25px; /* rounded */
+  overflow: hidden; /* biar isi ikut rounded */
+}
+
+/* Header default */
+.accordion-button {
+  background-color: #d9d9d945; /* abu muda */
+  color: rgba(0, 0, 0, 0.594);
+  font-weight: 600;
+  border: none;
+  border-radius: 25px !important;
+  padding: 18px 25px;
+  box-shadow: none; /* hilangkan shadow bootstrap */
+}
+
+/* Header pas aktif */
+.accordion-button:not(.collapsed) {
+  background-color: var(--blue); /* biru saat open */
+  color: var(--white);
+  /* font-weight: bold; */
+  border-radius: 25px 25px 0 0 !important;
+}
+
+/* Ganti warna icon (panah) */
+.accordion-button::after {
+  filter: invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0) invert(1); /* putih saat aktif */
+}
+
+/* Body accordion */
+.accordion-body {
+  background-color: var(--blue); /* sama biru kayak header aktif */
+  color: var(--white);
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 0 0 25px 25px;
+  padding: 10px 25px;
+}
+
+.accordion-custom .accordion-body p {
+  margin: 0.25rem 0; 
+}
+
+.eng-body {
+    font-size: 12px;
+    color: var(--softOrange);
+    /* font-family: "OpenSans"; */
+    font-weight: bolder;
+}
+
+.eng-header {
+    font-size: 12px;
+    color: var(--softOrange);
+    margin-top: 2px;
+    /* font-family: "OpenSans"; */
+    font-weight: bolder;
+}
+
+@media (max-width: 1124px) {
+    .container-custom {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 975px) {
+    .container-custom {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 686px) {
+    .container-custom {
+        max-width: 450px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 511px) {
+    .container-custom {
+        max-width: 300px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .text {
+        font-size: 30px;
+    }
+}
+
+.card-custom {
+    background-color: #d9d9d945;
+    border: none;
+    overflow: visible;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.custom-img {
+    width: 100px;
+    margin: 0 auto;
+    margin-top: -60px;
+    display: block;
+}
+
+.card-title {
+    font-family: "OpenSans-Bold";
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.card-text {
+    font-family: "OpenSans";
+    font-size: 15px;
+}
+
+.gy-6{
+    --bs-gutter-y: 6rem;
+}

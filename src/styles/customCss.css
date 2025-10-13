@@ -1,0 +1,78 @@
+:root{
+    --mainColor: #FFFAF1;
+    --darkBlue: #014769;
+    --midBlue: #137EB4;
+    --blue: #2296D9;
+    --blueTrans: #2296d948;
+    --softBlue: #6DC9F6;
+    --darkOrange: #EC8900;
+    --midOrange: #F39B2F;
+    --softOrange: #F8AC3C;
+    --icon: #777777;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("../assets/fonts/OpenSans.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OpenSans-Bold";
+    src: url("../assets/fonts/OpenSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OpenSans-Extra";
+    src: url("../assets/fonts/OpenSans-ExtraBold.ttf") format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px var(--darkBlue);
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.form-control:focus {
+    border-color: var(--softOrange);
+    box-shadow: 0 2px 2px var(--softOrange);
+}
+
+h2 {
+    font-family: "OpenSans-Bold";
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btn-submit {
+    background-color: var(--softOrange);
+    color: var(--white);
+    font-family: "OpenSans";
+    font-size: 15px;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+}
+
+.btn-submit:hover {
+    background-color: var(--darkOrange);
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
