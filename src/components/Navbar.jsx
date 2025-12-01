@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "../styles/landingPage.css";
-import logo from "../assets/images/logo_binusian.png";
+import logo from "../assets/images/logo.png";
 import { Link } from 'react-router-dom'
 
 const NavbarComp = () => {
@@ -12,8 +12,8 @@ const NavbarComp = () => {
             <img
               src={logo}
               alt="Logo Binusian Talks"
-              width={100}
-              height={40}
+              width={130}
+              height={25}
               className="d-inline-block align-top me-2"
             />
           </Navbar.Brand>
@@ -21,13 +21,13 @@ const NavbarComp = () => {
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav">
             {/* Menu tengah */}
             <Nav className="mx-auto gap-4">
-              <Nav.Link href="#forum" className="fw-bold text-dark">
+              <Nav.Link href="#forum" className="text-dark">
                 Forum
               </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="fw-bold text-dark mx-3">
+              <Nav.Link as={Link} to="/about" className="text-dark mx-3">
                 About
               </Nav.Link>
-              <Nav.Link href="#profile" className="fw-bold text-dark">
+              <Nav.Link href="#profile" className="text-dark">
                 Profile
               </Nav.Link>
             </Nav>

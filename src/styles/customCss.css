@@ -70,6 +70,11 @@ h2 {
     background-color: var(--darkOrange);
 }
 
+/* FOOTER */
+.nav-left .nav-right {
+    font-family: "OpenSans";
+}
+
 @media (max-width: 576px) {
     .form-container {
         margin: 20px;
