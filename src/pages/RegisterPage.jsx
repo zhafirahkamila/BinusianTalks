@@ -1,10 +1,13 @@
-import FormInput from "../components/formInput";
 import NavbarComp from "../components/Navbar";
+import FormInput from "../components/formInput";
 
 const RegisterPage = () => {
   return (
     <>
-      <NavbarComp />
+      <NavbarComp 
+        showMenu={false} 
+        authButtonType="signin" 
+      />
       <FormInput isRegister={true} />
     </>
   );

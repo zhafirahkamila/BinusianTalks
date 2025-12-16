@@ -1,7 +1,27 @@
-import RulesData from "../data/rulesData";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 
 const RulesGrid = () => {
+  const [rules, setRules] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5050/api/rules")
+      .then((res) => res.json())
+      .then((data) => {
+        setRules(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching rules:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <p className="text-center mt-5">Loading rules...</p>;
+  }
+
   return (
     <>
       <div className="d-flex justify-content-center align-items-center">
@@ -9,7 +29,7 @@ const RulesGrid = () => {
       </div>
       <div className="container-custom">
         <Row xs={1} md={3} className="gy-6 gx-4">
-          {RulesData.map((item, idx) => (
+          {rules.map((item, idx) => (
             <Col key={idx}>
               <Card className="h-100 rounded-5 card-custom">
                 <div className="img-wrapper">
