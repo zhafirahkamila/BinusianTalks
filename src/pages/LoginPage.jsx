@@ -1,11 +1,13 @@
-import React from 'react'
+import FormInput from "../components/formInput";
+import NavbarComp from "../components/Navbar";
 
 const LoginPage = () => {
   return (
-    <div>
-      <h1>Hello Login page</h1>
-    </div>
-  )
-}
+    <>
+      <NavbarComp showMenu={false} authButtonType="register" />
+      <FormInput isRegister={false} />
+    </>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
