@@ -6,17 +6,9 @@ import CarouselComp from "../components/carousel";
 import { Button } from "react-bootstrap";
 
 function About() {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <>
-      <NavbarComp showAuthButton={false}
-      showProfile={true} />
+      <NavbarComp />
       <CarouselComp />
       
       <div className="d-flex justify-content-center align-items-center">
@@ -26,22 +18,12 @@ function About() {
       </div>
 
       <div className="btn d-flex justify-content-center align-items-center gap-4 pb-5">
-        <Button className="btn-custom" onClick={() => scrollToSection('about-section')}>
-          About Us
-        </Button>
-        <Button className="btn-custom" onClick={() => scrollToSection('rules-section')}>
-          Our Rules
-        </Button>
+        <Button className="btn-custom">About Us</Button>
+        <Button className="btn-custom">Our Rules</Button>
       </div>
 
-      <div id="about-section">
-        <AboutAccordion />
-      </div>
-      
-      <div id="rules-section">
-        <RulesGrid />
-      </div>
-      
+      <AboutAccordion/>
+      <RulesGrid />
       <Footer />
     </>
   );

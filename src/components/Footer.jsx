@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import "../styles/customCss.css";
 
@@ -13,13 +12,13 @@ const Footer = () => {
           <div className="d-none d-lg-flex flex-wrap justify-content-between align-items-center">
             {/* Menu Kiri */}
             <Nav className="gap-4 nav-left">
-              <Nav.Link as={Link} to="/forum" className="text-dark">
+              <Nav.Link href="#forum" className="text-dark">
                 Forum
               </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="text-dark">
+              <Nav.Link href="#about" className="text-dark">
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/profile" className="text-dark">
+              <Nav.Link href="#profile" className="text-dark">
                 Profile
               </Nav.Link>
             </Nav>
@@ -51,13 +50,13 @@ const Footer = () => {
             </div>
             {/* Menu */}
             <Nav className="flex-column gap-2 mb-4">
-              <Nav.Link as={Link} to="/forum" className="text-dark">
+              <Nav.Link href="#forum" className="text-dark">
                 Forum
               </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="text-dark">
+              <Nav.Link href="#about" className="text-dark">
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/profile" className="text-dark">
+              <Nav.Link href="#profile" className="text-dark">
                 Profile
               </Nav.Link>
             </Nav>

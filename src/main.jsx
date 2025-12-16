@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './pages/App.jsx'
 // import About from './pages/About.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
-import LoginPage from './pages/LoginPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

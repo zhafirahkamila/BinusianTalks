@@ -1,28 +1,12 @@
-// src/components/formInput.jsx
-
 import { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
-import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-const FormInput = ({ 
-  isRegister = false,
-  showBottomLink = true  // Tampilkan link ke Login/Register di bawah form
-}) => {
+const FormInput = ({ isRegister = false }) => {
   const [showPass, setShowPass] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const navigate = useNavigate();
-
-  const auth = (values) => {
-    // Sesuaikan logika otentikasi di sini (e.g., kirim ke API login/register)
-    alert(`Submit Success!\n${JSON.stringify(values, null, 2)}`);
-    
-    // Redirect ke about page setelah berhasil login/register
-    setTimeout(() => {
-      navigate('/about');
-    }, 500); // Delay 500ms agar user sempat lihat alert
   const [statusMsg, setStatusMsg] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -80,7 +64,6 @@ const FormInput = ({
     }
   };
 
-  // Skema Validasi
   const ValidationSchema = yup.object().shape({
     email: yup
       .string()
@@ -115,6 +98,11 @@ const FormInput = ({
     validationSchema: ValidationSchema,
   });
 
+  // const handleForm = (event) => {
+  //   const { target } = event;
+  //   formik.setFieldValue(target.name, target.value);
+  // };
+
   return (
     <>
       <div
@@ -125,7 +113,6 @@ const FormInput = ({
           {isRegister ? "Create Account" : "Sign in"}
         </h1>
         <Form onSubmit={formik.handleSubmit} className="form-wrapper">
-          {/* 1. Email Input */}
           {/* STATUS MESSAGE */}
         {statusMsg && (
           <Alert variant={statusMsg.type} className="text-center">
@@ -147,8 +134,6 @@ const FormInput = ({
               {formik.errors.email}
             </Form.Control.Feedback>
           </Form.Group>
-
-          {/* 2. Password Input */}
           <Form.Group className="mb-5">
             <div className="position-relative">
               <Form.Control
@@ -169,61 +154,51 @@ const FormInput = ({
               </Form.Control.Feedback>
             </div>
           </Form.Group>
-
-          {/* 3. Confirm Password Input - HANYA DITAMPILKAN JIKA isRegister=true */}
-          {isRegister && (
-            <Form.Group className="mb-5">
-              <div className="position-relative">
-                <Form.Control
-                  className="form-input"
-                  type={showConfirm ? "text" : "password"}
-                  placeholder="Confirm Password"
-                  name="confirm"
-                  value={formik.values.confirm}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  isInvalid={formik.touched.confirm && !!formik.errors.confirm}
-                />
-                <span
-                  onClick={() => setShowConfirm(!showConfirm)}
-                  className="eye-icon"
-                >
-                  {showConfirm ? <EyeSlash /> : <Eye />}
-                </span>
-                <Form.Control.Feedback type="invalid">
-                  {formik.errors.confirm}
-                </Form.Control.Feedback>
-              </div>
-            </Form.Group>
-          )}
-
-          {/* 4. Tombol Submit */}
+          <Form.Group className="mb-5">
+            <div className="position-relative">
+              <Form.Control
+                className="form-input"
+                type={showConfirm ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="confirm"
+                value={formik.values.confirm}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                isInvalid={formik.touched.confirm && !!formik.errors.confirm}
+              />
+              <span
+                onClick={() => setShowConfirm(!showConfirm)}
+                className="eye-icon"
+              >
+                {showConfirm ? <EyeSlash /> : <Eye />}
+              </span>
+              <Form.Control.Feedback type="invalid">
+                {formik.errors.confirm}
+              </Form.Control.Feedback>
+            </div>
+          </Form.Group>
           <div className="d-flex justify-content-center">
             <Button type="submit" className="btn-create">
               {isRegister ? "Create" : "Sign in"}
             </Button>
           </div>
-
-          {/* 5. Teks Tautan - Optional */}
-          {showBottomLink && (
-            <div className="text-login text-center mt-3">
-              {isRegister ? (
-                <>
-                  <span>Have an account? </span>
-                  <Link to="/login" className="ms-1 text-decoration-none fw-bold">
-                    Sign in
-                  </Link>
-                </>
-              ) : (
-                <>
-                  <span>Didn't Have account? </span>
-                  <Link to="/register" className="ms-1 text-decoration-none fw-bold">
-                    Create Account
-                  </Link>
-                </>
-              )}
-            </div>
-          )}
+          <div className="text-login text-center mt-3">
+            {isRegister ? (
+              <>
+                <span>Have an account?</span>
+                <a href="/login" className="ms-1">
+                  Sign in
+                </a>
+              </>
+            ) : (
+              <>
+                <span>Didn't Have account?</span>
+                <a href="#register" className="ms-1">
+                  Create Account
+                </a>
+              </>
+            )}
+          </div>
         </Form>
       </div>
     </>
