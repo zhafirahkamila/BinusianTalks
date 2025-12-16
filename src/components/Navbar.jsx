@@ -33,7 +33,7 @@ const NavbarComp = () => {
             </Nav>
 
             {/* Button kanan */}
-            <Button href="#signin" className="btn-signin">
+            <Button as={Link} to="/register" className="btn-signin">
               Sign in
             </Button>
           </Navbar.Collapse>

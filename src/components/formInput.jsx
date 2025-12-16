@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -7,9 +7,61 @@ import * as yup from "yup";
 const FormInput = ({ isRegister = false }) => {
   const [showPass, setShowPass] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [statusMsg, setStatusMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const auth = (values) => {
-    alert(`Submit Success!\n${JSON.stringify(values, null, 2)}`);
+  // const auth = (values) => {
+  //   alert(`Submit Success!\n${JSON.stringify(values, null, 2)}`);
+  // };
+
+  // Send Login / Register to Backend
+  const auth = async (values) => {
+    setLoading(true);
+    setStatusMsg(null);
+    const url = isRegister ? "http://localhost:5050/api/auth/register" : "http://localhost:5050/api/auth/login";
+
+    const body = isRegister ? {
+      email: values.email,
+      password: values.password,
+      confirmPass: values.confirm,
+    } : {
+      email: values.email,
+      password: values.password,
+    };
+
+    try {
+      const res = await fetch(url, {
+        method: "POST", 
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      setLoading(false);
+      if (!res.ok) {
+        setStatusMsg({ text: data.message || "Error", type: "danger" });
+        return;
+      }
+
+      if (isRegister) {
+        setStatusMsg({ text: "Account created successfully!", type: "success" });
+        formik.resetForm();
+
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 1500);
+      } else {
+        setStatusMsg({ text: "Login success! Redirecting...", type: "success" });
+        localStorage.setItem("token", data.token);
+
+        setTimeout(() => {
+          window.location.href = "/home";
+        }, 1500);
+      }
+    } catch (err) {
+      setLoading(false);
+      setStatusMsg({ text: "Server error: " + err.message, type: "danger" });
+    }
   };
 
   const ValidationSchema = yup.object().shape({
@@ -61,6 +113,12 @@ const FormInput = ({ isRegister = false }) => {
           {isRegister ? "Create Account" : "Sign in"}
         </h1>
         <Form onSubmit={formik.handleSubmit} className="form-wrapper">
+          {/* STATUS MESSAGE */}
+        {statusMsg && (
+          <Alert variant={statusMsg.type} className="text-center">
+            {statusMsg.text}
+          </Alert>
+        )}
           <Form.Group className="mb-5">
             <Form.Control
               className="form-input"
@@ -128,7 +186,7 @@ const FormInput = ({ isRegister = false }) => {
             {isRegister ? (
               <>
                 <span>Have an account?</span>
-                <a href="#login" className="ms-1">
+                <a href="/login" className="ms-1">
                   Sign in
                 </a>
               </>
