@@ -2,12 +2,15 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const authMiddleware = require("../middleware/authMiddleware");
 const router = express.Router();
 
 // Register
 router.post("/register", async (req, res) => {
     try {
         const { email, password, confirmPass } = req.body;
+
+        console.log("REGISTER BODY:", req.body);
 
         // Validate email
         if (!email.endsWith("@binus.ac.id")) {
@@ -88,5 +91,23 @@ router.post("/login", async (req, res) => {
         res.status(500).json({ message: "Server error", error });
     }
 });
+
+// router.get("/profile", async (req, res) => {
+//     const user = await User.findById(req.user.id).select("-password");
+//     res.json(user)
+// })
+
+// router.put("/profile", async (req, res) => {
+//     const { username, bio, password } = req.body;
+
+//     const updateData = { username, bio };
+
+//     if (password) {
+//         updateData.password = await bcrypt.hash(password, 10);
+//     }
+
+//     await User.findByIdAndUpdate(req.user.id, updateData);
+//     res.json({ message: "Profile updated successfully" })
+// })
 
 module.exports = router;

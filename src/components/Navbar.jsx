@@ -21,19 +21,19 @@ const NavbarComp = () => {
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav">
             {/* Menu tengah */}
             <Nav className="mx-auto gap-4">
-              <Nav.Link href="#forum" className="text-dark">
+              <Nav.Link as={Link} to="/forum" className="text-dark">
                 Forum
               </Nav.Link>
               <Nav.Link as={Link} to="/about" className="text-dark mx-3">
                 About
               </Nav.Link>
-              <Nav.Link href="#profile" className="text-dark">
+              <Nav.Link as={Link} to="/profile" className="text-dark">
                 Profile
               </Nav.Link>
             </Nav>
 
             {/* Button kanan */}
-            <Button as={Link} to="/register" className="btn-signin">
+            <Button as={Link} to="/login" className="btn-signin">
               Sign in
             </Button>
           </Navbar.Collapse>

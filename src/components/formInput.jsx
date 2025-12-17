@@ -18,20 +18,24 @@ const FormInput = ({ isRegister = false }) => {
   const auth = async (values) => {
     setLoading(true);
     setStatusMsg(null);
-    const url = isRegister ? "http://localhost:5050/api/auth/register" : "http://localhost:5050/api/auth/login";
+    const url = isRegister
+      ? "http://localhost:5050/api/auth/register"
+      : "http://localhost:5050/api/auth/login";
 
-    const body = isRegister ? {
-      email: values.email,
-      password: values.password,
-      confirmPass: values.confirm,
-    } : {
-      email: values.email,
-      password: values.password,
-    };
+    const body = isRegister
+      ? {
+          email: values.email,
+          password: values.password,
+          confirmPass: values.confirm,
+        }
+      : {
+          email: values.email,
+          password: values.password,
+        };
 
     try {
       const res = await fetch(url, {
-        method: "POST", 
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
@@ -44,14 +48,20 @@ const FormInput = ({ isRegister = false }) => {
       }
 
       if (isRegister) {
-        setStatusMsg({ text: "Account created successfully!", type: "success" });
+        setStatusMsg({
+          text: "Account created successfully!",
+          type: "success",
+        });
         formik.resetForm();
 
         setTimeout(() => {
           window.location.href = "/login";
         }, 1500);
       } else {
-        setStatusMsg({ text: "Login success! Redirecting...", type: "success" });
+        setStatusMsg({
+          text: "Login success! Redirecting...",
+          type: "success",
+        });
         localStorage.setItem("token", data.token);
 
         setTimeout(() => {
@@ -114,11 +124,11 @@ const FormInput = ({ isRegister = false }) => {
         </h1>
         <Form onSubmit={formik.handleSubmit} className="form-wrapper">
           {/* STATUS MESSAGE */}
-        {statusMsg && (
-          <Alert variant={statusMsg.type} className="text-center">
-            {statusMsg.text}
-          </Alert>
-        )}
+          {statusMsg && (
+            <Alert variant={statusMsg.type} className="text-center">
+              {statusMsg.text}
+            </Alert>
+          )}
           <Form.Group className="mb-5">
             <Form.Control
               className="form-input"
@@ -154,29 +164,31 @@ const FormInput = ({ isRegister = false }) => {
               </Form.Control.Feedback>
             </div>
           </Form.Group>
-          <Form.Group className="mb-5">
-            <div className="position-relative">
-              <Form.Control
-                className="form-input"
-                type={showConfirm ? "text" : "password"}
-                placeholder="Confirm Password"
-                name="confirm"
-                value={formik.values.confirm}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                isInvalid={formik.touched.confirm && !!formik.errors.confirm}
-              />
-              <span
-                onClick={() => setShowConfirm(!showConfirm)}
-                className="eye-icon"
-              >
-                {showConfirm ? <EyeSlash /> : <Eye />}
-              </span>
-              <Form.Control.Feedback type="invalid">
-                {formik.errors.confirm}
-              </Form.Control.Feedback>
-            </div>
-          </Form.Group>
+          {isRegister && (
+            <Form.Group className="mb-5">
+              <div className="position-relative">
+                <Form.Control
+                  className="form-input"
+                  type={showConfirm ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  name="confirm"
+                  value={formik.values.confirm}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.confirm && !!formik.errors.confirm}
+                />
+                <span
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  className="eye-icon"
+                >
+                  {showConfirm ? <EyeSlash /> : <Eye />}
+                </span>
+                <Form.Control.Feedback type="invalid">
+                  {formik.errors.confirm}
+                </Form.Control.Feedback>
+              </div>
+            </Form.Group>
+          )}
           <div className="d-flex justify-content-center">
             <Button type="submit" className="btn-create">
               {isRegister ? "Create" : "Sign in"}
@@ -193,7 +205,7 @@ const FormInput = ({ isRegister = false }) => {
             ) : (
               <>
                 <span>Didn't Have account?</span>
-                <a href="#register" className="ms-1">
+                <a href="/register" className="ms-1">
                   Create Account
                 </a>
               </>
@@ -203,7 +215,6 @@ const FormInput = ({ isRegister = false }) => {
       </div>
     </>
   );
-};
 };
 
 export default FormInput;

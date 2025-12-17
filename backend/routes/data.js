@@ -5,7 +5,7 @@ const About = require("../models/About");
 const authMiddleware = require("../middleware/authMiddleware");
 
 // GET all Rules
-router.get("/rules", authMiddleware, async (req, res) => {
+router.get("/rules", async (req, res) => {
   try {
     const rules = await Rules.find({});
     res.json(rules);
@@ -15,7 +15,7 @@ router.get("/rules", authMiddleware, async (req, res) => {
 });
 
 // GET all About
-router.get("/about", authMiddleware, async (req, res) => {
+router.get("/about", async (req, res) => {
   try {
     const about = await About.find({});
     res.json(about);
