@@ -20,19 +20,19 @@ const NavbarComp = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav">
             {/* Menu tengah */}
-            <Nav className="mx-auto gap-4">
-              <Nav.Link href="#forum" className="text-dark">
-                Forum
-              </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="text-dark mx-3">
-                About
-              </Nav.Link>
-              <Nav.Link href="#profile" className="text-dark">
-                Profile
-              </Nav.Link>
-            </Nav>
+                  <Nav className="mx-auto gap-4">
+                    <Nav.Link as={Link} to="/forum" className="text-dark">
+                    Forum
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/about" className="text-dark mx-3">
+                    About
+                    </Nav.Link>
+                    <Nav.Link href="#profile" className="text-dark">
+                    Profile
+                    </Nav.Link>
+                  </Nav>
 
-            {/* Button kanan */}
+                  {/* Button kanan */}
             <Button href="#signin" className="btn-signin">
               Sign in
             </Button>
