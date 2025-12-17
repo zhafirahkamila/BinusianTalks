@@ -65,7 +65,7 @@ const FormInput = ({ isRegister = false }) => {
         localStorage.setItem("token", data.token);
 
         setTimeout(() => {
-          window.location.href = "/home";
+          window.location.href = "/about";
         }, 1500);
       }
     } catch (err) {

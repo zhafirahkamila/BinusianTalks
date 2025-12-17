@@ -5,6 +5,8 @@ require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
 const dataRoutes = require("./routes/data");
+const userRoutes = require("./routes/user");
+const uploadImage = express.static("uploads")
 
 const app = express();
 app.use(cors({
@@ -19,6 +21,8 @@ app.use(express.json());
 mongoose.connect(process.env.ATLAS_URI).then(() => console.log("MongoDB Connected")).catch(err => console.log(err))
 app.use('/api/auth', authRoutes);
 app.use("/api", dataRoutes);
+app.use("/api/user", userRoutes)
+app.use("/uploads", uploadImage);
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {

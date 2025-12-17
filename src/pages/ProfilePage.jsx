@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
-import ProfileForm from "../components/ProfileForm";
+import ProfileForm from "../components/ProfileComponents/ProfileForm";
 import NavbarComp from "../components/Navbar";
 
 const ProfilePage = () => {
