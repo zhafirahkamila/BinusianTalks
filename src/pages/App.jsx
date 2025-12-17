@@ -4,7 +4,7 @@ import RegisterPage from "./RegisterPage";
 import LoginPage from "./LoginPage";
 import ProtectedRoute from "../routes/ProtectedRoute";
 import ProfilePage from "./ProfilePage";
-import Forum from "./Forum";
+import ForumPage from "./ForumPage";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/forum" element={<Forum />} />
+          <Route path="/forum" element={<ForumPage />} />
 
           {/* <Route path="/about" element={<ProtectedRoute> <AboutPage /> </ProtectedRoute>}/> */}
         </Routes>
