@@ -10,8 +10,6 @@ const ProfilePage = () => {
       <NavbarComp />
       <ProfileForm />
       <Footer />
-
-      <div style={{ paddingBottom: "70px" }}></div>
     </div>
   );
 };

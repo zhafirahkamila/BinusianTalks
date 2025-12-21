@@ -6,6 +6,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const dataRoutes = require("./routes/data");
 const userRoutes = require("./routes/user");
+const forumRoutes = require("./routes/forum")
 const uploadImage = express.static("uploads")
 
 const app = express();
@@ -22,6 +23,7 @@ mongoose.connect(process.env.ATLAS_URI).then(() => console.log("MongoDB Connecte
 app.use('/api/auth', authRoutes);
 app.use("/api", dataRoutes);
 app.use("/api/user", userRoutes)
+app.use("/api/forum", forumRoutes)
 app.use("/uploads", uploadImage);
 
 const PORT = process.env.PORT || 5050;

@@ -8,7 +8,7 @@ const NavbarComp = () => {
     <>
       <Navbar expand="lg" bg="white" className="shadow-sm">
         <Container>
-          <Navbar.Brand href="#home" className="d-flex align-items-center">
+          <Navbar.Brand href="/forum" className="d-flex align-items-center">
             <img
               src={logo}
               alt="Logo Binusian Talks"

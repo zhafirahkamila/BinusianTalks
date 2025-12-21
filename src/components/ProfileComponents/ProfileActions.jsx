@@ -1,13 +1,13 @@
 import { Button } from "react-bootstrap";
 
-const ProfileActions = ({ isEdit, onEdit, onLogout }) => {
+const ProfileActions = ({ isEdit, onEdit, onLogout, onSave }) => {
   return (
     <div className="d-flex justify-content-center gap-3 mt-4">
       {!isEdit ? (
         <Button
           type="button"
           onClick={(e) => {
-            e.preventDefault(); // ⛔ stop form submit
+            e.preventDefault(); 
             onEdit();
           }}
           style={{
@@ -24,6 +24,7 @@ const ProfileActions = ({ isEdit, onEdit, onLogout }) => {
       ) : (
         <Button
           type="submit"
+          onClick={onSave}
           style={{
             backgroundColor: "#FFB84F",
             color: "white",

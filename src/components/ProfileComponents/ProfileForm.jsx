@@ -133,6 +133,7 @@ const ProfileForm = () => {
             <ProfileActions
               isEdit={isEdit}
               onEdit={() => setIsEdit(true)}
+              onSave={handleSave}
               onLogout={() => setShowLogoutModal(true)}
             />
             ;
