@@ -105,7 +105,7 @@ const ProfileForm = () => {
 
     if (!res.ok) {
       console.error("Update failed:", data);
-      alert("Failed to update profile");
+      alert(data.message || "Failed to update profile");
       return;
     }
 
