@@ -64,7 +64,7 @@ const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) =
                 <div className="post-main">
                   <div className="comment-top">
                     <strong className="comment-author">
-                      {comment.author.username}
+                      {comment.author || "Unknown User"}
                     </strong>
                     <span
                       className="comment-time"
