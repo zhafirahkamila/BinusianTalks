@@ -9,7 +9,15 @@ const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) =
 
       <div className="post-card-detail">
         <div className="post-header">
-          <img src={post.author.profileImage} alt={post.author.username} className="avatar" />
+          <img
+            src={
+              post.author.profileImage
+                ? `${import.meta.env.VITE_API_URL}${post.author.profileImage}`
+                : "/assets/images/gwen.jpg"
+            }
+            alt={post.author.username}
+            className="avatar"
+          />
           <div className="post-main">
             <h3 className="post-author">{post.author.username}</h3>
             <p className="post-content">{post.content}</p>
@@ -56,7 +64,7 @@ const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) =
                 <div className="post-main">
                   <div className="comment-top">
                     <strong className="comment-author">
-                      {comment.author}
+                      {comment.author.username}
                     </strong>
                     <span
                       className="comment-time"
