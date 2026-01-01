@@ -7,7 +7,7 @@ const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
         <img
           src={
             post.author.profileImage
-              ? `https://maurita-digressional-shonta.ngrok-free.dev${post.author.profileImage}`
+              ? `https://binusiantalks-api-production.up.railway.app${post.author.profileImage}`
               : "/avatars/default.jpg"
           }
           alt={post.author?.username}
