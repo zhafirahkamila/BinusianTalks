@@ -9,7 +9,7 @@ import ProfileActions from "./ProfileActions";
 const ProfileForm = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(gwen);
+  const [preview, setPreview] = useState("/assets/images/gwen.jpg");
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const ProfileForm = () => {
         });
 
         setPreview(
-          data.profileImage ? `https://maurita-digressional-shonta.ngrok-free.dev${data.profileImage}` : gwen
+          data.profileImage ? `https://maurita-digressional-shonta.ngrok-free.dev${data.profileImage}` : "/assets/images/gwen.jpg"
         );
       } catch (err) {
         console.error(err);
