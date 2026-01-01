@@ -78,28 +78,36 @@ const ProfileForm = () => {
   };
 
   const handleSave = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  if (!isEdit) return;
 
-    if (!isEdit) return;
+  const token = localStorage.getItem("token");
+  const formData = new FormData();
 
-    const token = localStorage.getItem("token");
-    const formData = new FormData();
+  formData.append("username", form.name);
+  formData.append("bio", form.bio);
+  if (form.password) formData.append("password", form.password);
+  if (image) formData.append("profileImage", image);
 
-    formData.append("username", form.name);
-    formData.append("bio", form.bio);
-    if (form.password) formData.append("password", form.password);
-    if (image) formData.append("profileImage", image);
-
-    await fetch("https://binusiantalks-api-production.up.railway.app/api/user/profile", {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        // "ngrok-skip-browser-warning": "true"
-      },
-      body: formData,
-    });
+  try {
+    const res = await fetch(
+      "https://binusiantalks-api-production.up.railway.app/api/user/profile",
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      }
+    );
 
     const data = await res.json();
+
+    if (!res.ok) {
+      console.error("Update failed:", data);
+      alert("Failed to update profile");
+      return;
+    }
 
     if (data.updateUser?.profileImage) {
       setPreview(
@@ -109,8 +117,14 @@ const ProfileForm = () => {
 
     alert("Profile updated successfully");
     setIsEdit(false);
+    setImage(null);
     setForm({ ...form, password: "" });
-  };
+
+  } catch (err) {
+    console.error("Save profile error:", err);
+    alert("Something went wrong");
+  }
+};
 
   /* ================= UI ================= */
   return (
