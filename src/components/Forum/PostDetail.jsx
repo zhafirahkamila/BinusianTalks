@@ -1,4 +1,4 @@
-import { fromNow, formatDateTime } from "../utils/date";
+import { fromNow, formatDateTime } from "../../utils/date";
 
 const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) => {
   return (

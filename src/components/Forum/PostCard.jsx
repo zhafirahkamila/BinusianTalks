@@ -1,5 +1,5 @@
 import { Heart, MessageSquare, Bookmark } from "lucide-react";
-import { fromNow, formatDateTime } from "../utils/date";
+import { fromNow, formatDateTime } from "../../utils/date";
 
 const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
   return (
