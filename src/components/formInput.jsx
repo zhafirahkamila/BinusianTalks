@@ -36,7 +36,7 @@ const FormInput = ({ isRegister = false }) => {
     try {
       const res = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "true" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
 

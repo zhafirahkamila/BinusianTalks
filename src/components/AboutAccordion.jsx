@@ -6,11 +6,7 @@ const AboutAccordion = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://binusiantalks-api-production.up.railway.app/api/about", {
-      headers: {
-        "ngrok-skip-browser-warning": "true"
-      }
-    })
+    fetch("https://binusiantalks-api-production.up.railway.app/api/about")
       .then((res) => res.json())
       .then((data) => {
         setAbout(data);

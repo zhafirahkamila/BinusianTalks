@@ -4,7 +4,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const getAuthHeader = () => ({
   Authorization: `Bearer ${localStorage.getItem("token")}`,
   "Content-Type": "application/json",
-  "ngrok-skip-browser-warning": "true"
+  // "ngrok-skip-browser-warning": "true"
 });
 
 export const fetchPosts = async () => {

@@ -30,7 +30,7 @@ const ProfileForm = () => {
         const res = await fetch("https://binusiantalks-api-production.up.railway.app/api/user/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
-            "ngrok-skip-browser-warning": "true"
+            // "ngrok-skip-browser-warning": "true"
           },
         });
 
@@ -94,10 +94,18 @@ const ProfileForm = () => {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
-        "ngrok-skip-browser-warning": "true"
+        // "ngrok-skip-browser-warning": "true"
       },
       body: formData,
     });
+
+    const data = await res.json();
+
+    if (data.updateUser?.profileImage) {
+      setPreview(
+        `https://binusiantalks-api-production.up.railway.app${data.updateUser.profileImage}?t=${Date.now()}`
+      );
+    }
 
     alert("Profile updated successfully");
     setIsEdit(false);
@@ -119,7 +127,7 @@ const ProfileForm = () => {
         >
           {/* PROFILE IMAGE */}
           <ProfileAvatar
-            preview="/assets/images/gwen.jpg"
+            preview={preview}
             isEdit={isEdit}
             onChange={handleImageChange}
           />
