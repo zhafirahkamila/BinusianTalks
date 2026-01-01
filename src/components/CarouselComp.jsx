@@ -1,5 +1,4 @@
 import { useState } from "react";
-import test from "../assets/images/test.jpg";
 import { Carousel } from "react-bootstrap";
 
 const CarouselComp = () => {
@@ -17,13 +16,13 @@ const CarouselComp = () => {
         className="rounded-5 overflow-hidden"
       >
         <Carousel.Item>
-          <img className="d-block w-100" src={test} alt="First slide" />
+          <img className="d-block w-100" src="/assets/images/test.jpg" alt="First slide" />
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={test} alt="Second slide" />
+          <img className="d-block w-100" src="/assets/images/test.jpg" alt="Second slide" />
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={test} alt="Third slide" />
+          <img className="d-block w-100" src="/assets/images/test.jpg" alt="Third slide" />
         </Carousel.Item>
       </Carousel>
     </div>

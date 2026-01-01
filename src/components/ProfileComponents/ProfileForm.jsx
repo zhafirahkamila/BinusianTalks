@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import ConfirmLogoutModal from "../ConfirmLogoutModal";
-import gwen from "../../assets/images/gwen.jpg";
 import ProfileAvatar from "./ProfileAvatar";
 import ProfileFields from "./ProfileFields";
 import ProfileActions from "./ProfileActions";
@@ -120,7 +119,7 @@ const ProfileForm = () => {
         >
           {/* PROFILE IMAGE */}
           <ProfileAvatar
-            preview={preview}
+            preview="/assets/images/gwen.jpg"
             isEdit={isEdit}
             onChange={handleImageChange}
           />

@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Nav } from "react-bootstrap";
-import logo from "../assets/images/logo.png";
 import "../styles/customCss.css";
 
 const Footer = () => {
@@ -25,7 +24,7 @@ const Footer = () => {
             {/* Logo Tengah */}
             <div className="d-flex justify-content-center">
               <img
-                src={logo}
+                src="/assets/images/logo.png"
                 alt="BeeTalk Logo"
                 height="30"
                 className="d-inline-block"
@@ -42,7 +41,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="mb-4">
               <img
-                src={logo}
+                src="/assets/images/logo.png"
                 alt="BeeTalk Logo"
                 height="30"
                 className="d-inline-block"
