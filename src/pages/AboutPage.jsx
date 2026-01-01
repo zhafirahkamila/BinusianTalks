@@ -3,7 +3,7 @@ import AboutAccordion from "../components/AboutAccordion";
 import Footer from "../components/Footer";
 import NavbarComp from "../components/Navbar";
 import RulesGrid from "../components/RulesGrid";
-import CarouselComp from "../components/carousel";
+import CarouselComp from "../components/CarouselComp";
 import { Button } from "react-bootstrap";
 
 const About = () => {
