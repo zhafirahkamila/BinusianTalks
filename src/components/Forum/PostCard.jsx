@@ -16,13 +16,16 @@ const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
         />
 
         <div className="post-main">
-          <h3 className="post-author">{post.author.username}</h3>
-          <span
-            className="post-time"
-            title={formatDateTime(post.createdAt)}
-          >
-            {fromNow(post.createdAt)}
-          </span>
+          <div className="post-top">
+            <h3 className="post-author">{post.author.username}</h3>
+
+            <span
+              className="post-time"
+              title={formatDateTime(post.createdAt)}
+            >
+              {fromNow(post.createdAt)}
+            </span>
+          </div>
           <p className="post-content">{post.content}</p>
 
           <div className="post-actions d-flex flex-wrap">
