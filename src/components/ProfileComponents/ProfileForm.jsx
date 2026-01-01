@@ -27,7 +27,7 @@ const ProfileForm = () => {
 
     const fetchProfile = async () => {
       try {
-        const res = await fetch("https://maurita-digressional-shonta.ngrok-free.dev/api/user/profile", {
+        const res = await fetch("https://binusiantalks-api-production.up.railway.app/api/user/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
             "ngrok-skip-browser-warning": "true"
@@ -49,7 +49,7 @@ const ProfileForm = () => {
         });
 
         setPreview(
-          data.profileImage ? `https://maurita-digressional-shonta.ngrok-free.dev${data.profileImage}` : "/assets/images/gwen.jpg"
+          data.profileImage ? `https://binusiantalks-api-production.up.railway.app${data.profileImage}` : "/assets/images/gwen.jpg"
         );
       } catch (err) {
         console.error(err);
@@ -90,7 +90,7 @@ const ProfileForm = () => {
     if (form.password) formData.append("password", form.password);
     if (image) formData.append("profileImage", image);
 
-    await fetch("https://maurita-digressional-shonta.ngrok-free.dev/api/user/profile", {
+    await fetch("https://binusiantalks-api-production.up.railway.app/api/user/profile", {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,

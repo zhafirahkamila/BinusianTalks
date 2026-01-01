@@ -19,8 +19,8 @@ const FormInput = ({ isRegister = false }) => {
     setLoading(true);
     setStatusMsg(null);
     const url = isRegister
-      ? "https://maurita-digressional-shonta.ngrok-free.dev/api/auth/register"
-      : "https://maurita-digressional-shonta.ngrok-free.dev/api/auth/login";
+      ? "https://binusiantalks-api-production.up.railway.app/api/auth/register"
+      : "https://binusiantalks-api-production.up.railway.app/api/auth/login";
 
     const body = isRegister
       ? {

@@ -6,7 +6,7 @@ const AboutAccordion = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://maurita-digressional-shonta.ngrok-free.dev/api/about", {
+    fetch("https://binusiantalks-api-production.up.railway.app/api/about", {
       headers: {
         "ngrok-skip-browser-warning": "true"
       }
