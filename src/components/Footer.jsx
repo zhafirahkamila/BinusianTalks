@@ -12,13 +12,13 @@ const Footer = () => {
           <div className="d-none d-lg-flex flex-wrap justify-content-between align-items-center">
             {/* Menu Kiri */}
             <Nav className="gap-4 nav-left">
-              <Nav.Link href="#forum" className="text-dark">
+              <Nav.Link href="/forum" className="text-dark">
                 Forum
               </Nav.Link>
-              <Nav.Link href="#about" className="text-dark">
+              <Nav.Link href="/about" className="text-dark">
                 About
               </Nav.Link>
-              <Nav.Link href="#profile" className="text-dark">
+              <Nav.Link href="/profile" className="text-dark">
                 Profile
               </Nav.Link>
             </Nav>

@@ -6,7 +6,11 @@ const RulesGrid = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5050/api/rules")
+    fetch("https://maurita-digressional-shonta.ngrok-free.dev/api/rules", {
+      headers: {
+        "ngrok-skip-browser-warning": "true"
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
         setRules(data);

@@ -22,6 +22,9 @@ const ForumComponent = () => {
   const [showNewPostModal, setShowNewPostModal] = useState(false);
   const [sidebarView, setSidebarView] = useState("all");
 
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUserId = currentUser?._id || currentUser?.id;
+
   /* ===== LOGIC ===== */
   useEffect(() => {
     fetchPosts().then((data) => {
@@ -93,25 +96,6 @@ const ForumComponent = () => {
     setShowNewPostModal(false);
   };
 
-  // const handleAddComment = async () => {
-  //   if (!newComment.trim() || !selectedPost) return;
-
-  //   const comment = await addComment(selectedPost._id, newComment);
-
-  //   setSelectedPost((prev) => ({
-  //     ...prev,
-  //     comments: prev.comments + 1,
-  //     commentsList: [...prev.commentsList, comment],
-  //   }));
-
-  //   setPosts((prev) =>
-  //     prev.map((p) =>
-  //       p.id === selectedPost.id ? { ...p, comments: p.comments + 1 } : p
-  //     )
-  //   );
-
-  //   setNewComment("");
-  // };
   const handleAddComment = async () => {
     if (!newComment.trim() || !selectedPost) return;
 
@@ -129,11 +113,21 @@ const ForumComponent = () => {
     sidebarView === "saved"
       ? posts.filter((p) => p.saved)
       : sidebarView === "yourTalks"
-      ? posts.filter((p) => p.author._id === currentUserId)
+      ? posts.filter(
+          (p) =>
+            p.author &&
+            p.author._id &&
+            p.author._id.toString() === currentUserId?.toString()
+        )
       : posts;
 
   const savedCount = posts.filter((p) => p.saved).length;
-  const userPostsCount = posts.filter((p) => p.isUserPost).length;
+  const userPostsCount = posts.filter(
+    (p) =>
+      p.author &&
+      p.author._id &&
+      p.author._id.toString() === currentUserId?.toString()
+  ).length;
 
   return (
     <div className="container-fluid">

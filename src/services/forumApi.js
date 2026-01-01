@@ -1,8 +1,10 @@
-const API_URL = "http://localhost:5050/api/forum";
+// const API_URL = "https://maurita-digressional-shonta.ngrok-free.dev/api/forum";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const getAuthHeader = () => ({
   Authorization: `Bearer ${localStorage.getItem("token")}`,
-  "Content-Type": "application/json"
+  "Content-Type": "application/json",
+  "ngrok-skip-browser-warning": "true"
 });
 
 export const fetchPosts = async () => {

@@ -19,8 +19,8 @@ const FormInput = ({ isRegister = false }) => {
     setLoading(true);
     setStatusMsg(null);
     const url = isRegister
-      ? "http://localhost:5050/api/auth/register"
-      : "http://localhost:5050/api/auth/login";
+      ? "https://maurita-digressional-shonta.ngrok-free.dev/api/auth/register"
+      : "https://maurita-digressional-shonta.ngrok-free.dev/api/auth/login";
 
     const body = isRegister
       ? {
@@ -36,7 +36,7 @@ const FormInput = ({ isRegister = false }) => {
     try {
       const res = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "true" },
         body: JSON.stringify(body),
       });
 
@@ -63,6 +63,7 @@ const FormInput = ({ isRegister = false }) => {
           type: "success",
         });
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
 
         setTimeout(() => {
           window.location.href = "/about";

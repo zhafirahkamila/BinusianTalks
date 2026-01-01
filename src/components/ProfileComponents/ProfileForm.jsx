@@ -28,9 +28,10 @@ const ProfileForm = () => {
 
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5050/api/user/profile", {
+        const res = await fetch("https://maurita-digressional-shonta.ngrok-free.dev/api/user/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
+            "ngrok-skip-browser-warning": "true"
           },
         });
 
@@ -49,7 +50,7 @@ const ProfileForm = () => {
         });
 
         setPreview(
-          data.profileImage ? `http://localhost:5050${data.profileImage}` : gwen
+          data.profileImage ? `https://maurita-digressional-shonta.ngrok-free.dev${data.profileImage}` : gwen
         );
       } catch (err) {
         console.error(err);
@@ -90,10 +91,11 @@ const ProfileForm = () => {
     if (form.password) formData.append("password", form.password);
     if (image) formData.append("profileImage", image);
 
-    await fetch("http://localhost:5050/api/user/profile", {
+    await fetch("https://maurita-digressional-shonta.ngrok-free.dev/api/user/profile", {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
+        "ngrok-skip-browser-warning": "true"
       },
       body: formData,
     });

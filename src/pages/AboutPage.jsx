@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import AboutAccordion from "../components/AboutAccordion";
 import Footer from "../components/Footer";
 import NavbarComp from "../components/Navbar";
@@ -5,7 +6,10 @@ import RulesGrid from "../components/RulesGrid";
 import CarouselComp from "../components/carousel";
 import { Button } from "react-bootstrap";
 
-function About() {
+const About = () => {
+  const aboutRef = useRef(null);
+  const rulesRef = useRef(null);
+
   return (
     <>
       <NavbarComp />
@@ -18,12 +22,18 @@ function About() {
       </div>
 
       <div className="btn d-flex justify-content-center align-items-center gap-4 pb-5">
-        <Button className="btn-custom">About Us</Button>
-        <Button className="btn-custom">Our Rules</Button>
+        <Button className="btn-custom" onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth" })}>About Us</Button>
+        <Button className="btn-custom" onClick={() => rulesRef.current.scrollIntoView({ behavior: "smooth" })}>Our Rules</Button>
       </div>
 
-      <AboutAccordion/>
-      <RulesGrid />
+      <div ref={aboutRef}>
+        <AboutAccordion/>
+      </div>
+
+      <div ref={rulesRef}>
+        <RulesGrid />
+      </div>
+    
       <Footer />
     </>
   );
