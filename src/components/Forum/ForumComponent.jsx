@@ -29,7 +29,12 @@ const ForumComponent = () => {
   useEffect(() => {
     fetchPosts().then((data) => {
       console.log("POSTS FROM API:", data);
-      setPosts(data);
+      if (Array.isArray(data)) {
+        setPosts(data);
+      } else {
+        console.error("API Error:", data);
+        setPosts([]);
+      }
     });
   }, []);
 
