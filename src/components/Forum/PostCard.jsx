@@ -1,4 +1,5 @@
 import { Heart, MessageSquare, Bookmark } from "lucide-react";
+import { fromNow, formatDateTime } from "../utils/date";
 
 const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
   return (
@@ -16,6 +17,12 @@ const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
 
         <div className="post-main">
           <h3 className="post-author">{post.author.username}</h3>
+          <span
+            className="post-time"
+            title={formatDateTime(post.createdAt)}
+          >
+            {fromNow(post.createdAt)}
+          </span>
           <p className="post-content">{post.content}</p>
 
           <div className="post-actions d-flex flex-wrap">

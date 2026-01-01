@@ -1,3 +1,5 @@
+import { fromNow, formatDateTime } from "../utils/date";
+
 const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) => {
   return (
     <>
@@ -42,18 +44,27 @@ const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) =
             <div key={comment._id} className="comment-card">
               <div className="post-header">
                 <img
-                  src={comment.avatar}
+                  src={
+                    comment.avatar
+                      ? `${import.meta.env.VITE_API_URL}${comment.avatar}`
+                      : "/assets/images/gwen.jpg"
+                  }
                   alt={comment.author}
                   className="comment-avatar"
                 />
+
                 <div className="post-main">
                   <div className="comment-top">
                     <strong className="comment-author">
                       {comment.author}
                     </strong>
-                    <span className="comment-time">
-                      {comment.timestamp}
+                    <span
+                      className="comment-time"
+                      title={formatDateTime(comment.timestamp)}
+                    >
+                      {fromNow(comment.timestamp)}
                     </span>
+
                   </div>
                   <p className="comment-content">{comment.content}</p>
                 </div>
