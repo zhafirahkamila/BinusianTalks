@@ -1,6 +1,5 @@
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "../styles/landingPage.css";
-import logo from "../assets/images/logo.png";
 import { Link } from 'react-router-dom'
 
 const NavbarComp = () => {
@@ -10,7 +9,7 @@ const NavbarComp = () => {
         <Container>
           <Navbar.Brand href="/forum" className="d-flex align-items-center">
             <img
-              src={logo}
+              src="/assets/images/logo.png"
               alt="Logo Binusian Talks"
               width={130}
               height={25}
