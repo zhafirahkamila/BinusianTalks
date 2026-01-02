@@ -6,11 +6,7 @@ const RulesGrid = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://binusiantalks-api-production.up.railway.app/api/rules", {
-      headers: {
-        "ngrok-skip-browser-warning": "true"
-      }
-    })
+    fetch(`${import.meta.env.VITE_API_URL}/api/rules`)
       .then((res) => res.json())
       .then((data) => {
         setRules(data);

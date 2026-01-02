@@ -6,7 +6,6 @@ import NavbarComp from "../components/Navbar";
 const ProfilePage = () => {
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      {/* <NavbarComp showAuthButton={false} showProfile={true} /> */}
       <NavbarComp />
       <ProfileForm />
       <Footer />

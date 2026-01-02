@@ -18,7 +18,6 @@ const NavbarComp = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-nav">
-            {/* Menu tengah */}
             <Nav className="mx-auto gap-4">
               <Nav.Link as={Link} to="/forum" className="text-dark">
                 Forum
@@ -31,7 +30,6 @@ const NavbarComp = () => {
               </Nav.Link>
             </Nav>
 
-            {/* Button kanan */}
             <Button as={Link} to="/login" className="btn-signin">
               Sign in
             </Button>

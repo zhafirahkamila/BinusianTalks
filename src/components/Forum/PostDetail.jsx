@@ -49,7 +49,7 @@ const PostDetail = ({ post, onBack, newComment, setNewComment, onAddComment }) =
           </p>
         ) : (
           post.commentsList.map((comment) => (
-            <div key={comment._id} className="comment-card">
+            <div key={comment.id} className="comment-card">
               <div className="post-header">
                 <img
                   src={

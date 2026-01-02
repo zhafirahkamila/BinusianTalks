@@ -5,18 +5,16 @@ const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
   return (
     <div className="post-card" onClick={() => onClick(post)}>
       <div className="post-header">
-        {/* AVATAR */}
         <img
           src={
             post.author.profileImage
-              ? `https://binusiantalks-api-production.up.railway.app${post.author.profileImage}`
+              ? `${import.meta.env.VITE_API_URL}${post.author.profileImage}`
               : "/assets/images/gwen.jpg"
           }
           alt={post.author.username}
           className="avatar"
         />
 
-        {/* MAIN CONTENT */}
         <div className="post-main">
           <h3 className="post-author">{post.author.username}</h3>
           <p className="post-content">{post.content}</p>
@@ -43,7 +41,6 @@ const PostCard = ({ post, onClick, toggleLike, toggleSave }) => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN (TIME + SAVE) */}
         <div className="post-right">
           <span
             className="post-time"

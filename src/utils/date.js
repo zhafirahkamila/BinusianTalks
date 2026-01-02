@@ -5,7 +5,6 @@ import "dayjs/locale/id";
 
 dayjs.extend(relativeTime);
 dayjs.extend(localizedFormat);
-// dayjs.locale("id");
 
 export const formatDateTime = (date) => {
   return dayjs(date).format("D MMM YYYY • HH:mm");

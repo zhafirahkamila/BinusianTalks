@@ -10,17 +10,12 @@ const FormInput = ({ isRegister = false }) => {
   const [statusMsg, setStatusMsg] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // const auth = (values) => {
-  //   alert(`Submit Success!\n${JSON.stringify(values, null, 2)}`);
-  // };
-
-  // Send Login / Register to Backend
   const auth = async (values) => {
     setLoading(true);
     setStatusMsg(null);
     const url = isRegister
-      ? "https://binusiantalks-api-production.up.railway.app/api/auth/register"
-      : "https://binusiantalks-api-production.up.railway.app/api/auth/login";
+      ? `${import.meta.env.VITE_API_URL}/api/auth/register`
+      : `${import.meta.env.VITE_API_URL}/api/auth/login`;
 
     const body = isRegister
       ? {
@@ -109,11 +104,6 @@ const FormInput = ({ isRegister = false }) => {
     validationSchema: ValidationSchema,
   });
 
-  // const handleForm = (event) => {
-  //   const { target } = event;
-  //   formik.setFieldValue(target.name, target.value);
-  // };
-
   return (
     <>
       <div
@@ -124,7 +114,6 @@ const FormInput = ({ isRegister = false }) => {
           {isRegister ? "Create Account" : "Sign in"}
         </h1>
         <Form onSubmit={formik.handleSubmit} className="form-wrapper">
-          {/* STATUS MESSAGE */}
           {statusMsg && (
             <Alert variant={statusMsg.type} className="text-center">
               {statusMsg.text}

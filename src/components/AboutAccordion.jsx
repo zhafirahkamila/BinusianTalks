@@ -6,7 +6,7 @@ const AboutAccordion = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://binusiantalks-api-production.up.railway.app/api/about")
+    fetch(`${import.meta.env.VITE_API_URL}/api/about`)
       .then((res) => res.json())
       .then((data) => {
         setAbout(data);

@@ -20,17 +20,15 @@ const ProfileForm = () => {
     bio: "",
   });
 
-  /* ================= FETCH PROFILE ================= */
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
     const fetchProfile = async () => {
       try {
-        const res = await fetch("https://binusiantalks-api-production.up.railway.app/api/user/profile", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/user/profile`, {
           headers: {
-            Authorization: `Bearer ${token}`,
-            // "ngrok-skip-browser-warning": "true"
+            Authorization: `Bearer ${token}`
           },
         });
 
@@ -49,7 +47,7 @@ const ProfileForm = () => {
         });
 
         setPreview(
-          data.profileImage ? `https://binusiantalks-api-production.up.railway.app${data.profileImage}` : "/assets/images/gwen.jpg"
+          data.profileImage ? `${import.meta.env.VITE_API_URL}${data.profileImage}` : "/assets/images/gwen.jpg"
         );
       } catch (err) {
         console.error(err);
@@ -59,7 +57,6 @@ const ProfileForm = () => {
     fetchProfile();
   }, []);
 
-  /* ================= HANDLERS ================= */
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -73,8 +70,8 @@ const ProfileForm = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // 🔑 hapus auth
-    navigate("/login", { replace: true }); // 🚀 redirect
+    localStorage.removeItem("token"); 
+    navigate("/login", { replace: true });
   };
 
   const handleSave = async (e) => {
@@ -91,7 +88,7 @@ const ProfileForm = () => {
 
   try {
     const res = await fetch(
-      "https://binusiantalks-api-production.up.railway.app/api/user/profile",
+      `${import.meta.env.VITE_API_URL}/api/user/profile`,
       {
         method: "PUT",
         headers: {
@@ -111,7 +108,7 @@ const ProfileForm = () => {
 
     if (data.updateUser?.profileImage) {
       setPreview(
-        `https://binusiantalks-api-production.up.railway.app${data.updateUser.profileImage}?t=${Date.now()}`
+        `${import.meta.env.VITE_API_URL}${data.updateUser.profileImage}?t=${Date.now()}`
       );
     }
 
@@ -126,7 +123,6 @@ const ProfileForm = () => {
   }
 };
 
-  /* ================= UI ================= */
   return (
     <>
       <Container className="d-flex flex-column align-items-center mb-5">
@@ -139,7 +135,6 @@ const ProfileForm = () => {
             marginTop: "30px",
           }}
         >
-          {/* PROFILE IMAGE */}
           <ProfileAvatar
             preview={preview}
             isEdit={isEdit}
